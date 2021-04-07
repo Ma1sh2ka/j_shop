@@ -7,7 +7,7 @@ print('Задание 4 -', string.upper())
 print('Задание 5 -', 'нд -', string.count('нд'), 'ам -', string.count('ам'), \
       'о -', string.count('о'))
 print('Задание 6 -', string.replace('друг', 'ФАНАТ'))
-print('', (string[::4]), 'ХА-ХА!')
+print('', (string[::4]), 'ХА-ХА!!!!!')
 print(string.count('д') * 3)
 print(string.endswith('!'))
 print(string.endswith('а'))
