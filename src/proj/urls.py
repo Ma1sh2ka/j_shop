@@ -21,6 +21,6 @@ from spravochniki import views as spravochniki_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('<code>/', cities_views.cities),
-    path('', cities_views.home)
+    # path('<code>/', cities_views.cities),
+    # path('', cities_views.home)
 ]
