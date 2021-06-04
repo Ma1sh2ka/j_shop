@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список серий</title>
+</head>
+<body>
+    <h1>Список серий:</h1>
+    <ul>
+        {% for series in series_list %}
+            <li>Серия №{{ series.pk }} <a href="{% url 'series' series.pk %}">{{ series }}</a>
+                <a href="{% url 'series_update' series.pk %}">Update</a>
+                <a href="{% url 'series_delete' series.pk %}">Delete</a></li>
+        {% endfor %}
+    </ul>
+    <h3><a href="{% url 'series_create' %}">Создать новую серию</a></h3>
+    <h3><a href="{% url 'home' %}">Главная страница</h3>
+</body>
+</html>

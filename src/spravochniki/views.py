@@ -1,66 +1,89 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import TemplateView
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse_lazy, reverse
 
 from . import models
+from . import forms
 
 # Create your views here.
 
-def author(request, author_id):
-    author = models.Author.objects.get(pk=author_id)
-    ctx = {
-        'author': author,
-    }
-    return render(request, template_name='author_detail.html', context=ctx)
+class AuthorDetailView(DetailView):
+    model = models.Author
 
-def author_list(request):
-    author_list = models.Author.objects.all()
-    ctx = {
-        'author_list': author_list,
-    }
-    return render(request, template_name='author_list.html', context=ctx)
+class AuthorListView(ListView):
+    model = models.Author
 
+class AuthorCreateView(CreateView):
+    model = models.Author
+    form_class = forms.CreateAuthorForm
 
-def series(request, series_id):
-    series = models.Series.objects.get(pk=series_id)
-    ctx = {
-        'series': series,
-    }
-    return render(request, template_name='series_detail.html', context=ctx)
+class AuthorUpdateView(UpdateView):
+    model = models.Author
+    form_class = forms.CreateAuthorForm
 
-def series_list(request):
-    series_list = models.Series.objects.all()
-    ctx = {
-        'series_list': series_list,
-    }
-    return render(request, template_name='series_list.html', context=ctx)
+class AuthorDeleteView(DeleteView):
+    model = models.Author
+    success_url = reverse_lazy('author-list')
 
 
-def genre(request, genre_id):
-    genre = models.Genre.objects.get(pk=genre_id)
-    ctx = {
-        'genre': genre,
-    }
-    return render(request, template_name='genre_detail.html', context=ctx)
+class SeriesDetailView(DetailView):
+    model = models.Series
 
-def genre_list(request):
-    genre_list = models.Genre.objects.all()
-    ctx = {
-        'genre_list': genre_list,
-    }
-    return render(request, template_name='genre_list.html', context=ctx)
+class SeriesListView(ListView):
+    model = models.Series
 
-def publishing_house(request, publishing_house_id):
-    publishing_house = models.Publishing_house.objects.get(pk=publishing_house_id)
-    ctx = {
-        'publishing_house': publishing_house,
-    }
-    return render(request, template_name='publishing_house_detail.html', context=ctx)
+class SeriesCreateView(CreateView):
+    model = models.Series
+    form_class = forms.CreateSeriesForm
 
-def publishing_house_list(request):
-    publishing_house_list = models.Publishing_house.objects.all()
-    ctx = {
-        'publishing_house_list': publishing_house_list,
-    }
-    return render(request, template_name='publishing_house_list.html', context=ctx)
+class SeriesUpdateView(UpdateView):
+    model = models.Series
+    form_class = forms.CreateSeriesForm
 
-def home(request):
-    return render(request, template_name='homepage.html', context={})
+class SeriesDeleteView(DeleteView):
+    model = models.Series
+    success_url = reverse_lazy('series-list')
+
+
+class GenreDetailView(DetailView):
+    model = models.Genre
+
+class GenreListView(ListView):
+    model = models.Genre
+
+class GenreCreateView(CreateView):
+    model = models.Genre
+    form_class = forms.CreateGenreForm
+
+class GenreUpdateView(UpdateView):
+    model = models.Genre
+    form_class = forms.CreateGenreForm
+
+class GenreDeleteView(DeleteView):
+    model = models.Genre
+    success_url = reverse_lazy('genre-list')
+
+
+class Publishing_houseDetailView(DetailView):
+    model = models.Publishing_house
+
+class Publishing_houseListView(ListView):
+    model = models.Publishing_house
+
+class Publishing_houseCreateView(CreateView):
+    model = models.Publishing_house
+    form_class = forms.CreatePublishing_houseForm
+
+class Publishing_houseUpdateView(UpdateView):
+    model = models.Publishing_house
+    form_class = forms.CreatePublishing_houseForm
+
+class Publishing_houseDeleteView(DeleteView):
+    model = models.Publishing_house
+    success_url = reverse_lazy('publishing_house-list')
+
+
+class Home(TemplateView):
+    template_name = 'spravochniki/home.html'

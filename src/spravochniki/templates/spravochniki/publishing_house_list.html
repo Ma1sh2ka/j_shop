@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список издательств</title>
+</head>
+<body>
+    <h1>Список издательств:</h1>
+    <ul>
+        {% for publishing_house in publishing_house_list %}
+            <li>Издательство №{{ publishing_house.pk }} <a href="{% url 'publishing_house' publishing_house.pk %}">{{ publishing_house }}</a>
+                <a href="{% url 'publishing_house_update' publishing_house.pk %}">Update</a>
+                <a href="{% url 'publishing_house_delete' publishing_house.pk %}">Delete</a></li>
+        {% endfor %}
+    </ul>
+    <h3><a href="{% url 'publishing_house_create' %}">Создать новое издательство</a></h3>
+    <h3><a href="{% url 'home' %}">Главная страница</h3>
+</body>
+</html>

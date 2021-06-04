@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Author(models.Model):
@@ -7,11 +8,15 @@ class Author(models.Model):
         max_length=150
     )
     description = models.TextField(
+        verbose_name='Описание',
         blank=True
     )
 
     def __str__(self) -> str:
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('author', args=[self.pk])
 
 class Meta:
     verbose_name = 'Автор'
@@ -26,11 +31,15 @@ class Series(models.Model):
         null=True
     )
     description = models.TextField(
+        verbose_name='Описание',
         blank=True
     )
 
     def __str__(self) -> str:
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('series', args=[self.pk])
 
 class Meta:
     verbose_name = 'Серия'
@@ -43,11 +52,15 @@ class Genre(models.Model):
         max_length=100
     )
     description = models.TextField(
+        verbose_name='Описание',
         blank=True
     )
 
     def __str__(self) -> str:
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('genre', args=[self.pk])
 
 class Meta:
     verbose_name = 'Жанр'
@@ -60,11 +73,15 @@ class Publishing_house(models.Model):
         max_length=100
     )
     description = models.TextField(
+        verbose_name='Описание',
         blank=True
     )
 
     def __str__(self) -> str:
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('publishing_house', args=[self.pk])
 
 class Meta:
     verbose_name = 'Издательство'
