@@ -25,7 +25,7 @@ class AuthorUpdateView(UpdateView):
 
 class AuthorDeleteView(DeleteView):
     model = models.Author
-    success_url = reverse_lazy('author-list')
+    success_url = reverse_lazy('spravochniki:author-list')
 
 
 class SeriesDetailView(DetailView):
@@ -44,7 +44,7 @@ class SeriesUpdateView(UpdateView):
 
 class SeriesDeleteView(DeleteView):
     model = models.Series
-    success_url = reverse_lazy('series-list')
+    success_url = reverse_lazy('spravochniki:series-list')
 
 
 class GenreDetailView(DetailView):
@@ -63,7 +63,7 @@ class GenreUpdateView(UpdateView):
 
 class GenreDeleteView(DeleteView):
     model = models.Genre
-    success_url = reverse_lazy('genre-list')
+    success_url = reverse_lazy('spravochniki:genre-list')
 
 
 class Publishing_houseDetailView(DetailView):
@@ -82,7 +82,7 @@ class Publishing_houseUpdateView(UpdateView):
 
 class Publishing_houseDeleteView(DeleteView):
     model = models.Publishing_house
-    success_url = reverse_lazy('publishing_house-list')
+    success_url = reverse_lazy('spravochniki:publishing_house-list')
 
 
 class Home(TemplateView):

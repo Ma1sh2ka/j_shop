@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Серия</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Series Detail{% endblock title %}
+{% block body %}
     <h1>Серия:</h1>
     <u><b>Название серии:</b></u> {{ series.name }}</br>
     <u><b>Описание:</b></u> {{ series.description }}</br>
-    <h3><a href="{% url 'series-list' %}">Вернуться к списку серий</h3>
+    <h3><a href="{% url 'spravochniki:series-list' %}">Вернуться к списку серий</h3>
     <h3><a href="{% url 'home' %}">Главная страница</h3>
-</body>
-</html>
+{% endblock body %}

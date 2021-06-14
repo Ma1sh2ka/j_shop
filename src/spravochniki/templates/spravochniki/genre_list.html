@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список жанров</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Genre List{% endblock title %}
+{% block body %}
     <h1>Список жанров:</h1>
     <ul>
         {% for genre in genre_list %}
-            <li>Жанр №{{ genre.pk }} <a href="{% url 'genre' genre.pk %}">{{ genre }}</a>
-                <a href="{% url 'genre_update' genre.pk %}">Update</a>
-                <a href="{% url 'genre_delete' genre.pk %}">Delete</a></li>
+            <li>Жанр №{{ genre.pk }} <a href="{% url 'spravochniki:genre' genre.pk %}">{{ genre }}</a>
+                <a href="{% url 'spravochniki:genre_update' genre.pk %}">Update</a>
+                <a href="{% url 'spravochniki:genre_delete' genre.pk %}">Delete</a></li>
         {% endfor %}
     </ul>
-    <h3><a href="{% url 'genre_create' %}">Создать новый жанр</a></h3>
+    <h3><a href="{% url 'spravochniki:genre_create' %}">Создать новый жанр</a></h3>
     <h3><a href="{% url 'home' %}">Главная страница</h3>
-</body>
-</html>
+{% endblock body %}

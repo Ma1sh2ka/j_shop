@@ -5,8 +5,9 @@ class CreateAuthorForm(forms.ModelForm):
     class Meta:
         model = models.Author
         fields = (
+            'picture',
             'name',
-            'description'
+            'description',
         )
 
 class CreateSeriesForm(forms.ModelForm):

@@ -11,12 +11,16 @@ class Author(models.Model):
         verbose_name='Описание',
         blank=True
     )
+    picture = models.ImageField(
+        verbose_name='Картинка',
+        upload_to='author/%Y/%m/%d/'
+    )
 
     def __str__(self) -> str:
         return self.name
 
     def get_absolute_url(self):
-        return reverse('author', args=[self.pk])
+        return reverse('spravochniki:author', args=[self.pk])
 
 class Meta:
     verbose_name = 'Автор'
@@ -39,7 +43,7 @@ class Series(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('series', args=[self.pk])
+        return reverse('spravochniki:series', args=[self.pk])
 
 class Meta:
     verbose_name = 'Серия'
@@ -60,7 +64,7 @@ class Genre(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('genre', args=[self.pk])
+        return reverse('spravochniki:genre', args=[self.pk])
 
 class Meta:
     verbose_name = 'Жанр'
@@ -81,7 +85,7 @@ class Publishing_house(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('publishing_house', args=[self.pk])
+        return reverse('spravochniki:publishing_house', args=[self.pk])
 
 class Meta:
     verbose_name = 'Издательство'

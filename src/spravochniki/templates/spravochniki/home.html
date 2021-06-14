@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Homepage{% endblock title %}
+{% block body %}
     <h1>Список всех справочников:</h1>
     <ul>
-        <li><a href="{% url 'author-list' %}">Авторы</li>
-        <li><a href="../seriess">Серии книг</li>
-        <li><a href="../genres">Жанры</li>
-        <li><a href="../publishing_houses">Издательства</li>
+        <li><a href="{% url 'spravochniki:author-list' %}">Авторы</li>
+        <li><a href="{% url 'spravochniki:series-list' %}">Серии книг</li>
+        <li><a href="{% url 'spravochniki:genre-list' %}">Жанры</li>
+        <li><a href="{% url 'spravochniki:publishing_house-list' %}">Издательства</li>
     </ul>
-</body>
-</html>
+{% endblock body %}

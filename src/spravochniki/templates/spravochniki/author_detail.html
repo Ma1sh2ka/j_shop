@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автор</title>
-</head>
-<body>
-    <h1>Автор:</h1>
-    <u><b>Имя и фамилия автора:</b></u> {{ author.name }}</br>
-    <u><b>Описание:</b></u> {{ author.description }}</br>
-    <h3><a href="{% url 'author-list' %}">Вернуться к списку авторов</h3>
-    <h3><a href="{% url 'home' %}">Главная страница</h3>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Author Detail{% endblock title %}
+{% block body %}
+<div class="card" style="width: 18rem;">
+    <img src="{{ author.picture.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Автор {{ author.name }}</h5>
+        <p class="card-text"><b>Имя и фамилия автора:</b> {{ author.name }}</br>
+        <b>Описание:</b> {{ author.description }}</br></p>
+        <a href="{% url 'spravochniki:author-list' %}" class="btn btn-primary">Вернуться к списку авторов</a><br>
+        <p></p></br>
+        <a href="{% url 'home' %}" class="btn btn-success">Главная страница</a>
+    </div>
+</div>
+{% endblock body %}

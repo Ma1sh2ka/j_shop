@@ -1,21 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список авторов</title>
-</head>
-<body>
-    <h1>Список авторов:</h1>
-    <ul>
+{% extends 'base.html' %}
+{% block title %}Author List{% endblock title %}
+{% block body %}
+<h1>Список авторов:</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Detail</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for author in author_list %}
-            <li>Автор №{{ author.pk }} <a href="{% url 'author' author.pk %}">{{ author }}</a>
-                <a href="{% url 'author_update' author.pk %}">Update</a>
-                <a href="{% url 'author_delete' author.pk %}">Delete</a></li>
+        <tr>
+            <th scope="row">#</th>
+            <td><a href="{% url 'spravochniki:author' author.pk %}">{{ author }}</a></td>
+            <td><button type="submit" class="btn btn-warning"><a href="{% url 'spravochniki:author_update' author.pk %}">Update</a></button></td>
+            <td><button type="submit" class="btn btn-danger"><a href="{% url 'spravochniki:author_delete' author.pk %}">Delete</a></button></td>
+        </tr>
         {% endfor %}
-    </ul>
-    <h3><a href="{% url 'author_create' %}">Создать нового автора</a></h3>
-    <h3><a href="{% url 'home' %}">Главная страница</h3>
-</body>
-</html>
+    </tbody>
+</table>
+<h3><a href="{% url 'spravochniki:author_create' %}">Создать нового автора</a></h3>
+<h3><a href="{% url 'home' %}">Главная страница</h3>
+{% endblock body %}

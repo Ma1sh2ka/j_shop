@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Удалить жанр</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Genre Delete{% endblock title %}
+{% block body %}
     <h1>Удалить жанр</h1>
     <form action="" method="POST">
     {% csrf_token %}
     <button type="submit">Submit</button>
-    <button type="submit" value="zuruk"><a href="{% url 'genre-list' %}">Назад</button>
+    <button type="submit" value="zuruk"><a href="{% url 'spravochniki:genre-list' %}">Назад</button>
     </form>
-</body>
-</html>
+{% endblock body %}
