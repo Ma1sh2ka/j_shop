@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # 'cities',
     'crispy_forms',
     'spravochniki',
+    'books',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +54,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'proj.urls'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / 'static',
 ]
 TEMPLATES = [
     {

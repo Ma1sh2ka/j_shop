@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Book List{% endblock title %}
+{% block body %}
+<table class="table align-middle caption-top table-hover">
+    <caption><h1>Список книг</h1></caption>
+    <thead class="table-light">
+        <tr>
+          <th scope="col">Номер</th>
+          <th scope="col">Название книги</th>
+          <th scope="col">Обновить данные</th>
+          <th scope="col">Удалить автора</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in book_list %}
+        <tr>
+            <th class="table-info" scope="row">{{ forloop.counter }}</th>
+            <td><a href="{% url 'books:book' book.pk %}">{{ book }}</a></td>
+            <td><button type="submit" class="btn btn-outline-warning btn-sm"><a href="{% url 'books:book_update' book.pk %}">Обновить</a></button></td>
+            <td><button type="submit" class="btn btn-outline-danger btn-sm"><a href="{% url 'books:book_delete' book.pk %}">Удалить</a></button></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+    </tfoot>
+</table>
+<div class="d-grid gap-2 d-md-block">
+    <a class="btn btn-outline-primary" href="{% url 'books:book_create' %}" role="button">Создать нового автора</a>
+    <a class="btn btn-outline-success" href="{% url 'home' %}" role="button">Главная страница</a>
+</div>
+{% endblock body %}

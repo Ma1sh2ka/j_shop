@@ -11,10 +11,7 @@ class Author(models.Model):
         verbose_name='Описание',
         blank=True
     )
-    picture = models.ImageField(
-        verbose_name='Картинка',
-        upload_to='author/%Y/%m/%d/'
-    )
+    
 
     def __str__(self) -> str:
         return self.name

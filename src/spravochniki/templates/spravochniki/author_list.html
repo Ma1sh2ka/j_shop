@@ -1,27 +1,31 @@
 {% extends 'base.html' %}
 {% block title %}Author List{% endblock title %}
 {% block body %}
-<h1>Список авторов:</h1>
-<table class="table table-hover">
-    <thead>
+<table class="table align-middle caption-top table-hover">
+    <caption><h1>Список авторов</h1></caption>
+    <thead class="table-light">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Detail</th>
-          <th scope="col">Update</th>
-          <th scope="col">Delete</th>
+          <th scope="col">Номер</th>
+          <th scope="col">Имя и фамилия автора</th>
+          <th scope="col">Обновить данные</th>
+          <th scope="col">Удалить автора</th>
         </tr>
     </thead>
     <tbody>
         {% for author in author_list %}
         <tr>
-            <th scope="row">#</th>
+            <th class="table-info" scope="row">{{ forloop.counter }}</th>
             <td><a href="{% url 'spravochniki:author' author.pk %}">{{ author }}</a></td>
-            <td><button type="submit" class="btn btn-warning"><a href="{% url 'spravochniki:author_update' author.pk %}">Update</a></button></td>
-            <td><button type="submit" class="btn btn-danger"><a href="{% url 'spravochniki:author_delete' author.pk %}">Delete</a></button></td>
+            <td><button type="submit" class="btn btn-outline-warning btn-sm"><a href="{% url 'spravochniki:author_update' author.pk %}">Обновить</a></button></td>
+            <td><button type="submit" class="btn btn-outline-danger btn-sm"><a href="{% url 'spravochniki:author_delete' author.pk %}">Удалить</a></button></td>
         </tr>
         {% endfor %}
     </tbody>
+    <tfoot>
+    </tfoot>
 </table>
-<h3><a href="{% url 'spravochniki:author_create' %}">Создать нового автора</a></h3>
-<h3><a href="{% url 'home' %}">Главная страница</h3>
+<div class="d-grid gap-2 d-md-block">
+    <a class="btn btn-outline-primary" href="{% url 'spravochniki:author_create' %}" role="button">Создать нового автора</a>
+    <a class="btn btn-outline-success" href="{% url 'home' %}" role="button">Главная страница</a>
+</div>
 {% endblock body %}

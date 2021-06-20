@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}Author Detail{% endblock title %}
 {% block body %}
-<div class="card" style="width: 18rem;">
-    <img src="{{ author.picture.url }}" class="card-img-top" alt="...">
+<div class="card" style="width: 10rem;">
     <div class="card-body">
         <h5 class="card-title">Автор {{ author.name }}</h5>
         <p class="card-text"><b>Имя и фамилия автора:</b> {{ author.name }}</br>
         <b>Описание:</b> {{ author.description }}</br></p>
-        <a href="{% url 'spravochniki:author-list' %}" class="btn btn-primary">Вернуться к списку авторов</a><br>
-        <p></p></br>
-        <a href="{% url 'home' %}" class="btn btn-success">Главная страница</a>
     </div>
+</div>
+<div class="d-grid gap-2 d-md-block">
+    <a class="btn btn-outline-primary" href="{% url 'spravochniki:author-list' %}" role="button">Вернуться к списку авторов</a>
+    <a class="btn btn-outline-success" href="{% url 'home' %}" role="button">Главная страница</a>
 </div>
 {% endblock body %}

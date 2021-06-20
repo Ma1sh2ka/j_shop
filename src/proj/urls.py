@@ -21,14 +21,16 @@ from django.conf import settings
 
 # from cities import views as cities_views
 from spravochniki import views as spravochniki_views
+# from books import views as books_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('<code>/', cities_views.cities),
     # path('', cities_views.home),
     path('shop_books/', include('spravochniki.urls', namespace='spravochniki')),
+    path('booksss/', include('books.urls', namespace='books')),
     path('', spravochniki_views.Home.as_view(), name='home')
 ]
 
 if settings.DEBUG:
-    urlpatterns == static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

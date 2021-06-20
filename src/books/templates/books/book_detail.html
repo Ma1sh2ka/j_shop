@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Book Detail{% endblock title %}
+{% block body %}
+<div class="card text-center" style="width: 18rem;">
+    <img src="{{ book.picture.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Книга {{ book.name }}</h5>
+        <p class="card-text"><b>Имя и фамилия автора:</b> {{ book.name }}<br>
+        <b>Описание:</b> {{ book.description }}<br>
+        <b>Описание:</b> {{ book.created }}<br>
+        {{ book.created|timesince }}<br>
+        <b>Описание:</b> {{ book.updated }}<br>
+        <a href="#" class="btn btn-outline-primary">Заказать книгу</a><br></p>
+    </div>
+</div>
+<div class="d-grid gap-2 d-md-block">
+    <a class="btn btn-outline-primary" href="{% url 'books:book-list' %}" role="button">К списку книг</a>
+    <a class="btn btn-outline-success" href="{% url 'home' %}" role="button">Главная страница</a>
+</div>
+{% endblock body %}
